@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+
+
+
+                              % file references.
+\usepackage{mflogo}           % Provides the METAFONT logo.
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{calc}
+\usepackage{subfig}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{setspace}
+\usepackage{fullpage}
+\usepackage{bbm}
+\usepackage{algpseudocode}
+\usepackage{algorithm2e}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{sectsty}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage{graphics}
+\usepackage{fancyhdr}
+\usepackage{sectsty}
+\usepackage{titlesec}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+ 
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\def \Ncal {{N}}
+\def \Gcal {{\mathcal G}}
+\def \Ccal {{\mathcal C}}
+\def \Pr {\text{Pr}}
+\def \Tarrow {\overrightarrow{T}}
+
+\allsectionsfont{\bf \large }
+%\subsectionfont{\sc \normalsize}
+\titlespacing*{\section}{0pt}{12pt}{3pt}{}
+\titlespacing*{\subsection}{0pt}{12pt}{3pt}{}
+
+\parskip 9pt
+
+
+\newcommand{\dddoublespace}{\addtolength{\baselineskip}{.20\baselineskip}}
+\newcommand{\ssinglespace}{\addtolength{\baselineskip}{-.5\baselineskip}}
+\newcommand{\restoredoublespace}{\addtolength{\baselineskip}{1.\baselineskip}}
+
+
+
+
+\begin{document}
+
+\title{R Tutorial}
+\author{Jake Feldman}
+
+\maketitle
+
+\section{Installing R}
+
+The first step is installing R.  You can download the latest version at: 
+
+\begin{itemize}
+\item For Windows: https://cran.r-project.org/bin/windows/base/
+\item For Mac: https://cran.r-project.org/bin/macosx/
+\end{itemize}
+
+Next, I would highly recommend downloading RStudio which is a tool that allows you to be more productive in R as well as manage R's many packages in a simple manner.  RStudio can be downloaded at https://www.rstudio.com/products/rstudio/download/.  Once you have downloaded R and RStudio, open RStudio.  On the left is a panel known as the console, think of it as a fancy calculator.  This is where we will do everything. Type 1+1 in the console to check that everything is working...you should get 2.
+
+\section{Reading in Excel Worksheet}
+
+This tutorial will work with the data from the file Applicants.xls so download this file and save it wherever you would like.  Let's assume that you have saved it to your Desktop.  Before we can read the data into R we have to tell R where our excel is.  In other words, we have to change our working directory to location of Applicants.xls.  There are two ways to do this.  The first is directly through the console and uses the command $setwd()$ which stands for set working directory.  The input for command is the file path to the spreadsheet.  So, in our case this would be $setwd(``\sim/Desktop")$, where the $\sim$ is a shortcut for you home directory.  The second way is through the panel on the bottom right of RStudio, where you should see a collection of folders. Navigate to the location of Applicants.xls by clicking on the appropriate folders.  Once you are in the correct place, on the top menu bar go Session $\rightarrow$ Set Working Directory $\rightarrow$ To File Pane Location. This will automatically give you the correct $setwd()$ command.
+
+
+Before we issue the command to read in the data we will have to install a package called gdata. You can view all the packages you have installed through the bottom right window.  Clip the packages tab and search gdata.  If you have it installed simply check the box. If not, go to Tools $\rightarrow$ Installl Packages in the top menu bar and then search for gdata.  Once it is downloaded you will see it under packages in the bottom right portion of RStudio so all you have to do is check the box. 
+
+Now we are ready to read in the excel data into an R data frame, which is a data structure (special way to store the data) that allows us to easily filter and sort the data.  Tp read in the data from sheet one into a data frame type $ df = read.xls ("Applicants.xlsx", sheet = 1, header = TRUE)$, since the data is in the first sheet.  You will often see $<-$ used in place of the equal sign in R, you can treat them as the same thing.  Now we have all the data loaded in to a dataframe which have given the name $df$, lets see how to manipulate the data.
+
+%Typing $head(df)$ will give you the first few entries entries in each column.  This is a good way to check that you have read in the correct data table.  
+
+
+
+\end{document}
