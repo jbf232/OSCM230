@@ -1,0 +1,195 @@
+\documentclass{article}    % Specifies the document style.
+\renewcommand{\baselinestretch}{1}      % Spacing
+\setlength{\oddsidemargin}{0in} \setlength{\evensidemargin}{0in} \setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-.2in} \setlength{\headsep}{0in} \setlength{\textheight}{9.5in}
+\pagestyle{empty}
+%
+\usepackage{xcolor}
+\usepackage{amsmath,amsthm}
+\usepackage{graphicx}
+
+\newcommand{\answer}[1]{{\color{blue}#1}}
+\newcommand{\grade}[1]{\textcolor{red}{#1}}
+\renewcommand{\grade}[1]{ }	%to remove grading scheme, just make this link active
+%\renewcommand{\answer}[1]{ } %%to remove answer , just make this link active
+
+\newcommand{\Xm}{X_m}
+\newcommand{\ginv}{g^{-1}}
+\newcommand{\Xbar}{\overline{X}}
+\newcommand{\lcbr}{\left\{}
+\newcommand{\rcbr}{\right\}}
+\newcommand{\lbr}{\left[}
+\newcommand{\rbr}{\right]}
+\newcommand{\lpr}{\left(}
+\newcommand{\rpr}{\right)}
+\newcommand{\spc}{\vspace{.15in}}
+\newcommand{\nv}[1]{\boldsymbol{#1}}
+
+\begin{document}           % End of preamble and beginning of text.
+
+
+\begin{center}
+\textbf{ENGRD 2700 F14 Basic Engineering Probability and Statistics}\\[.1cm]
+
+\textbf{Homework 1}
+\end{center}
+
+\begin{itemize}
+\item You may complete this homework either on your own or in pairs. No groups of 3 or more! If you complete it with a partner, hand in a \textbf{single} homework with \textbf{both} of your names etc. on it.
+\item Be sure to \textbf{clearly} write your name, Net ID and the section you {\em attend} on
+  your homework so we can record your score and return your homework in recitations, e.g., Shane Henderson, sgh9, Friday 8.40-9.55.
+\item Remember to staple your homework pages together.
+\item There is no need to use Word or similar software (Latex) to prepare your homework. Handwritten homework with printouts as needed is just fine, but see the next point.
+\item Statistics is partly about communication. Write clearly and concisely. Points will be taken off if your answers are garbled, difficult to read or disorganized.
+\item You may use any software package you like.
+\item Provide evidence for each of your answers, but there is no need to print every piece of working that you complete. If a calculation involves only very minor computation then explain the computation you performed and give the results. If a calculation involves more complicated steps on many many records then hand in the calculations and formulas for the first few records only. (To show formulas in Excel, click the ``Show Formulas'' checkbox under Excel Preferences $\rightarrow$ View or type CTRL + `(Left of 1 key).)
+\end{itemize}
+
+\medskip
+
+The data for the first part of this homework consists of data from the 2013 National Football League (NFL) Season.  There are two Excel spreadsheets that you will need to download: NFLGames.xls and NFLTeams.xls.  I assume no prior knowledge of football for this problem set.  
+
+\medskip
+  
+\noindent The fields (column names) for NFLGames.xls are as follows:
+\begin{enumerate}
+\item Week. There are 17 weeks in the NFL season.  Each team plays once a week, but also gets one of the 17 weeks off.  As a result, each team plays 16 games.  
+\item Home Team ID.  Each game is hosted by one of the two teams that plays.  The team that hosts the game is called the home team.  This column gives the unique team ID of the home team.
+\item Away Team ID. The team that travels to play the home team is called the away team.  This column gives the away team ID
+\item Home Team Score. The number of points scored by the home team
+\item Away Team Score. The number of points scored by the away team
+\item Day of the Week. The day of the week during which the game was played.
+\item Time. Column which tells whether the game was played during the day or night.
+\item Field Surface. The type of field that the games was played on. 
+\item Temperature. The outside temperature at the start of the game.
+\item Wind. The wind speed at the start of the game.
+\end{enumerate}
+
+\medskip
+  
+\noindent The fields (column names) for NFLTeams.xls relate team IDs to team names as follows:
+\begin{enumerate}
+\item Team ID. Unique ID for each team.
+\item Team Name.  The name of the NFL team that corresponds to each team ID.
+\end{enumerate}
+
+\subsection*{Data Visualization and Analysis Questions}(20 points)
+\begin{enumerate}
+\item (4 points) First, we will want to use NFLTeams.xls to figure out the names of the teams that played in each of the games.  In NFLGames.xls, add two blank columns next to Away Team ID. Title the first ``Home Team Name'' and the second ``Away Team Name''  You can do this by right-clicking column header D above Home Team Score and choosing insert.  Next, we will want to ``look up'' the team name corresponding to each team ID in the table NFLTeams.xls. This can be done using the Excel command VLOOKUP.  Provide a screen shot of the final product with formulas showing in each cell (There is an explanation at the top of the homework that shows how to do this).
+
+To use VLOOKUP, click on the first blank cell under Home Team Name and type ``=VLOOKUP(a,b,c,d) where the inputs to VLOOKUP have the following interpretations:  
+\begin{itemize}
+\item a: Column whose entries you want to lookup
+\item b: All of the columns of the look-up table (Here, you will want to use the columns from NFLTeams.xls.  It is okay that these columns are in a different spreadsheet.)
+\item c: Column number that we want to output (indices start at 1 and we want to output the team name)
+\item d: FALSE (we want an exact match)
+\end{itemize}
+
+Obviously, this is not exactly what you should type, I am giving you some hints on how to use VLOOKUP and there is plenty more guidance in the Excel documentation or at an office hour!       
+
+
+
+\item \textbf{Analyzing Home Field Advantage:} In the following problems, we will investigate whether there is an advantage to playing at home.
+
+\begin{enumerate}
+\item (2 points)  Calculate the mean and standard deviation for the scores of the home team and the away team.
+
+\item (3 points) Provide a histogram for the points scored by the home team.  Compare this to a histogram of the points scored for the away team.  Comment on the shapes of both histograms.
+
+\item (1 points) What percentage of games were won by the home team?
+
+\item (2 points) Based on this analysis does there appear to be a ``home-field advantage''?  What another analysis might be useful?
+
+
+\end{enumerate}
+
+\item  \textbf{Analyzing the effect of weather:} In this part we see if weather conditions affect the number of points scored.
+
+\begin{enumerate}
+\item First, delete the rows that have a temperature of 0 degrees as these entries correspond to games played in domes (A downside of my data source).  You can do this quickly using the Filter button on the Data tab in Excel.  First, highlight all rows and columns by clicking on the gray cell above row 1 and left of column A.  Then, click Filter, little arrows should appear next to the column names.  You can click on these arrows to filter each of the columns. To unfilter, click the filter button again.
+
+\item (2 points) Plot the total points scored in each game versus the temperature.  Comment on the relationship between the temperature and the number of points scored.
+
+\item (2 points) Repeat part b) but replace temperature with wind.
+
+
+\end{enumerate}
+
+
+
+\item (4 points) Create a time series for the San Francisco 49ers showing this team's scoring from week to week.
+
+\end{enumerate}
+
+\subsection*{Counting and Probability Questions}\grade{44 points.}
+\begin{enumerate}
+\item 
+\begin{enumerate}
+\item How many distinct nine-letter words can be made by permuting the letters in ``PEPPERONI''? (For this problem, count gibberish such as ``EPPERONIP'' as a word.)
+
+\medskip
+
+\textcolor{blue}{There are $9!$ ways to permute the letters in the word ``PEPPERONI'', but not all of these permutations result in distinct words. The letter ``P'' appears three times, and we can ignore the order in which each ``P'' appears within the permuted word. The same is true for the letter ``E''. Since there are $3!$ ways to permute 3 copies of the letter ``P'', and $2!$ ways to permute 2 copies of the letter ``E'', we can create $$ \frac{9!}{3!\, 2!} = \text{30,240 words}.$$}
+
+\item How many distinct ways are there to arrange the letters ``PEPPERONI'' in a circle?
+
+\medskip
+
+\textcolor{blue}{        If we attempt to build necklaces out of the 30,240 words from part (a), there will be duplicates. For instance, necklaces built from ''PEPPERONI'' and ``IPEPPERON'' are identical, as each one can be rotated to obtain the other. We will thus obtain 9 copies of each necklace, and so there are
+        $$
+            \frac{\text{30,240}}{9} = \text{3,360}
+        $$
+        distinct necklaces that can be built.} 
+\end{enumerate}
+\item A man has $n$ keys, of which only one unlocks his car.  He picks a key uniformly at random among the keys that he has not already tried.  This means that if there $k \leq n$ keys remaining, the probability of choosing each one is $\frac{1}{k}$.  Compute the probability that he succeeds on his $i^{th}$ try.
+
+\medskip
+
+\textcolor{blue}{The order in which he selects keys to unlock his car is equally likely to be any of the $n!$ possible sequences. To find the probability that he succeeds on his $i$\textsuperscript{th} try, we need to find the number of sequences such that the desired key appears in the $i^{th}$ position. This number is $(n-1)!$ --- the number of ways in which the remaining $n-1$ keys can be arranged in the sequence. Thus he succeeds on his $i$\textsuperscript{th} try with probability
+    $$
+        \frac{(n-1)!}{n!} = \frac{1}{n}.
+    $$}
+
+\item Find the probability of drawing a five-card hand containing two clubs, two spades, and one diamond from a standard deck of playing cards.
+
+\medskip
+
+\textcolor{blue}{We found in lecture that there are $\binom{52}{5}$ possible poker hands, and so it remains to find the number of five-card hands containing two clubs, two spades, and one diamond.}
+
+    \spc
+	\textcolor{blue}{
+    To find this number, we break the problem up into parts. There are $\binom{13}{2}$ ways to build a two-card hand from a 13-card deck containing only clubs (or a deck containing only spades). Similarly, there are $\binom{13}{1}$ possible one-card hands from a deck containing only diamonds. Using the product rule, there are
+    $$
+        \binom{13}{2}\,\binom{13}{2}\,\binom{13}{1}
+    $$
+    possible hands containing two clubs, two spades, and one diamond. The probability of drawing such a hand is
+    $$
+        \frac{\displaystyle \binom{13}{2}\,\binom{13}{2}\,\binom{13}{1} }{\displaystyle \binom{52}{5}} \approx 0.030.
+    $$}
+
+\item Consider a lottery in which we purchase a ticket with five distinct numbers from the set $\{1, 2, \ldots, 39\}$. During the drawing, five of these numbers are randomly selected (again, uniformly at random), which we'll call the \textit{winning numbers} associated with that drawing. 
+\vskip 0.2em
+
+\noindent For $i = 0, 1, \ldots, 5$, let $p_i$ be the probability that the ticket contains $i$ winning numbers.  Order does not matter, you just have to match numbers.  Compute $p_5$ and $p_4$. 
+
+\medskip
+
+\textcolor{blue}{There are $\binom{39}{5}$ possible outcomes for the drawing, each of which is equally likely. Since there is only one way for the ticket to have five winning numbers, it follows that
+        $$
+            p_5 = \frac{1}{\displaystyle \binom{39}{5}} = \frac{1}{\text{575,757}} \approx 1.74 \times 10^{-6}
+        $$
+There are $\binom{5}{4}$ ways to select 4 numbers on the ticket to be winning numbers. The remaining number must be selected from the pool of 34 numbers not found on the ticket, which can be done in $\binom{34}{1}$ ways. Thus
+        $$
+            p_4 = \frac{\displaystyle \binom{5}{4} \binom{34}{1}}{\displaystyle \binom{39}{5}} = \frac{170}{\text{575,757}} \approx 2.95 \times 10^{-4}.
+        $$}   
+
+
+\item Consider a single elimination, bracket style tournament similar to the NCAA basketball tournament: In the first round, every team plays a game against another team, winners move on to play other winners and losers go home.  This means that the numbers of teams left is cut in half after every round.  The tournament continues until there is only one team left, at which point this team is deemed the champion.  Instead of 64 teams as in the NCAA tournament, assume that we have $2^{1000}$ teams.  How many total games will be played in the tournament?
+
+\medskip
+
+\textcolor{blue}{In every game played there is exactly one loser.  Therefore, to count the number of games played, we just have to count the number of losers.  Every team loses except for the champion.  This means there are $2^{1000}-1$ losers and so there are $2^{1000}-1$ games.}
+
+\end{enumerate}
+
+\end{document}

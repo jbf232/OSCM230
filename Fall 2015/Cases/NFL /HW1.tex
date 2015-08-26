@@ -1,0 +1,100 @@
+\documentclass{article}    % Specifies the document style.
+
+%
+\usepackage{color}
+\usepackage{amsmath,amsthm}
+\usepackage{graphicx}
+
+\parskip 9pt
+
+
+
+
+\begin{document}           % End of preamble and beginning of text.
+\begin{center}
+\textbf{Case Study: How Does Homefield and Weather Affect the Outcome of the Game?}\\[.1cm]
+
+
+
+\end{center}
+
+For a few years now the NFL has been thinking about a moving a team to London, England.  The business potential is huge, as this franchise would essentially become Europe's team.  While the decision is sound from a business perspective, it might affect the the team's performance on the field.  Beyond the normal distractions that come from moving overseas, there are also concerns from across the league regarding the lack of a strong fan base in London and the weather.  With regard to the first concern, teams are worried that if they move to London they will lose their homefield advantage.  NFL Commissioner Roger Goodell has come to you and asked you to answer two question:
+
+\begin{enumerate}
+\item Is there such thing as homefield advantage?
+\item How does weather affect the outcome of the game?
+\end{enumerate}
+
+
+
+Commissioner Goodell gives you two excel spredsheets worth of data from the 2013 Season: NFLGames.xls and NFLTeams.xls.  The data sets are described below. 
+
+\medskip
+  
+\noindent The fields (column names) for NFLGames.xls are as follows:
+\begin{enumerate}
+\item Week. There are 17 weeks in the NFL season.  Each team plays once a week, but also gets one of the 17 weeks off.  As a result, each team plays 16 games.  
+\item Home Team ID.  Each game is hosted by one of the two teams that plays.  The team that hosts the game is called the home team.  This column gives the unique team ID of the home team.
+\item Away Team ID. The team that travels to play the home team is called the away team.  This column gives the away team ID
+\item Home Team Score. The number of points scored by the home team
+\item Away Team Score. The number of points scored by the away team
+\item Day of the Week. The day of the week during which the game was played.
+\item Time. Column which tells whether the game was played during the day or night.
+\item Field Surface. The type of field that the games was played on. 
+\item Temperature. The outside temperature at the start of the game.
+\item Wind. The wind speed at the start of the game.
+\end{enumerate}
+
+\medskip
+  
+\noindent The fields (column names) for NFLTeams.xls relate team IDs to team names as follows:
+\begin{enumerate}
+\item Team ID. Unique ID for each team.
+\item Team Name.  The name of the NFL team that corresponds to each team ID.
+\end{enumerate}
+
+\textbf{Case Preparation Assignment: Look over the data in the two excel spreadsheets and write a brief summary about how you would go about answering the two questions that Goodell has posed.}
+
+%\subsection*{Data Visualization and Analysis Questions}\grade{44 points.}
+%\begin{enumerate}
+%\item (4 points) First, we will want to use NFLTeams.xls to figure out the names of the teams that played in each of the games.  In NFLGames.xls, add two blank columns next to Away Team ID. Title the first ``Home Team Name'' and the second ``Away Team Name''  You can do this by right-clicking column header D above Home Team Score and choosing insert.  Next, we will want to ``look up'' the team name corresponding to each team ID in the table NFLTeams.xls. This can be done using the Excel command VLOOKUP.  Provide a screen shot of the final product with formulas showing in each cell (There is an explanation at the top of the homework that shows how to do this).
+%
+%To use VLOOKUP, click on the first blank cell under Home Team Name and type ``=VLOOKUP(a,b,c,d) where the inputs to VLOOKUP have the following interpretations:  
+%\begin{itemize}
+%\item a: Column whose entries you want to lookup
+%\item b: All of the columns of the look-up table (Here, you will want to use the columns from NFLTeams.xls.  It is okay that these columns are in a different spreadsheet.)
+%\item c: Column number that we want to output (indices start at 1 and we want to output the team name)
+%\item d: FALSE (we want an exact match)
+%\end{itemize}
+%
+%Obviously, this is not exactly what you should type, I am giving you some hints on how to use VLOOKUP and there is plenty more guidance in the Excel documentation or at an office hour!       
+%
+%\grade{1 point for reasoning, 1 point for final answer.}
+%
+%\item \textbf{Analyzing Home Field Advanatge:} In the following problems, we will investigate whether there is an advantage to playing at home.
+%
+%\begin{enumerate}
+%\item (2 points) Calculate the mean and standard deviation for the scores of the home team and the away team.
+%
+%\item (3 points) Provide a histogram for the points scored by the home team.  Compare this to a histogram of the points scored for the away team.  Comment on the shapes of both histograms.
+%
+%\item (1 points) What percentage of games were won by the home team?
+%
+%\item (2 points) Based on this analysis does there appear to be a ``home-field advanatage''?  What another analysis might be useful?
+%
+%
+%\end{enumerate}
+%
+%\item \textbf{Analyzing the effect of weather:} In this part we see if weather conditions affect the number of points scored.
+%
+%\begin{enumerate}
+%\item First, delete the rows that have a temperature of 0 degrees as these entries correspond to games played in domes (A downside of my data source).  You can do this quickly using the Filter button on the Data tab in Excel.  First, highlight all rows and columns by clicking on the gray cell above row 1 and left of column A.  Then, click Filter, little arrows should appear next to the column names.  You can click on these arrows to filter each of the columns. To unfilter, click the filter button again.
+%
+%\item (2 points) Plot the total points scored in each game versus the temperature.  Comment on the relationship between the temperature and the number of points scored.
+%
+%\item (2 points) Repeat part b) but replace temperature with wind.
+%
+
+
+
+\end{document}
