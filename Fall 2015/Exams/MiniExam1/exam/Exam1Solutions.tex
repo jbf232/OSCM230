@@ -1,0 +1,66 @@
+\documentclass{article}[11 pt]    % Specifies the document style.
+
+%
+\usepackage{color}
+\usepackage{amsmath,amsthm}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+%\parskip 9pt
+
+
+\begin{document}           % End of preamble and beginning of text.
+
+
+\title{Mini Exam 1 Solutions}
+
+\author{OSCM 230}
+
+\maketitle
+
+
+\section*{Problem 1 Solutions}
+
+Let $x_{ij}$ be the number of ``units'' of student $i$ that we ``ship'' to school $j$.  In other words, $x_{ij}$ is 1 if we assign student $i$ to school $j$ and 0 otherwise.  We have $i=\{v, m, e, t\}$ and $j=\{w, h, j, d\}$ where the last index for $j$ corresponds to the dummy node we need since supply is greater than demand.  We will set the demand of $d$ to be 1 since this is the total supply (4) minus the total demand (3).  The linear program to solve the assignment problem is as follows:
+\begin{align*}
+\hspace{1.5cm}& \max \;3x_{vw} + 2x_{vh} +  3x_{mw} + 2x_{mj} +  3x_{ej} + 2x_{ej} +  3x_{tj} + 2x_{tw} \\
+s.t. &\;\;\; \sum_{j} x_{ij}=1,\;\;i=\{v, m, e, t\}  \\
+&\;\;\; \sum_{i} x_{ij}=1,\;\;j=\{w, h, j, d\} \\
+&\;\;\; x_{ij} \geq 0
+\end{align*} 
+
+
+\section*{Problem 2 Solutions}
+
+The decision in this problem is how many jerseys to produce on each of the three days however we also need to introduce an auxiliary set of decision variables to keep track of the inventory.  Define the following two sets of decision variables:
+\begin{itemize}
+\item $P_i$: The number of jerseys that we produce on day $i$, where $i \in \{10, 11, 12\}$.  Read $\in$ as ``in'' .
+\item $I_i$: The inventory at the start of day $i$,  where $i \in \{10, 11, 12\}$.
+\end{itemize}
+The following linear program solves the problem:
+\begin{align*}
+\hspace{1.5cm}& \min \;20P_{10} + 10P_{11} + 30P_{12} \\
+s.t. &\;\;\; I_{11}= P_{10} -10  \\
+&\;\;\; I_{12}=I_{11} + P_{11} - 15 \\
+&\;\;\; P_{12}=20- I_{12}  \\
+&\;\;\; P_i, I_i \geq 0
+\end{align*} 
+
+\noindent \textbf{Bonus (additional 2 points)}
+\\
+
+\noindent We have to add a few additional auxiliary variables and change the objective to capture the stocking costs. The following linear program solves the problem:
+\begin{align*}
+\hspace{1.5cm}& \min \;20P_{10} + 10P_{11} + 30P_{12} +S_1 +5S_2 \\
+s.t. &\;\;\; I_{11}= P_{10} -10  \\
+&\;\;\; I_{12}=I_{11} + P_{11} - 15 \\
+&\;\;\; P_{12}=20- I_{12}  \\
+&\;\;\;S= I_{11} + I_{12} \\
+&\;\;\; S=S_1 +S_2\\
+&\;\;\; S_1 \leq 10 \\
+&\;\;\; P_i, I_i, S, S_1,S_2 \geq 0
+\end{align*}   
+ 
+
+\end{document}
+

@@ -1,0 +1,97 @@
+\documentclass{article}[11 pt]    % Specifies the document style.
+
+%
+\usepackage{color}
+\usepackage{amsmath,amsthm}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+%\parskip 9pt
+
+
+\begin{document} 
+          % End of preamble and beginning of text.
+\title{Mini Exam 1}
+
+\author{OSCM 230}
+
+\maketitle
+
+\noindent \textbf{Due Date}:  The exam is due on 10/13 to Breena Smith in Knight Hall 455 by 5 pm.
+\\
+
+\noindent \textbf{Rules for the Exam}:  This is an individual exam.  All of the work should be exclusively your work.  You are allowed to use notes from the class but you are NOT allowed to use the internet (unless you are accessing the notes via Blackboard or my website).   From the time the exam comes out to 5 pm on 10/13 you are allowed to spend as much time as you would like on the exam.  I have crafted the exam so it should take about an hour.
+\\
+
+\noindent \textbf{Turning in the Excel Part}: For one of the problems, you are asked to solve the linear program in Excel.  Please attach a printout of the sheet where you have formulated the problem.  No need to show the formulas, but please make it clear where the decision variables, objective function and left hand side of the constraints are located. 
+\\
+
+\noindent \textbf{Questions?}: Feel free to email me for any clarifications. jbfeldman@wustl.edu
+\\
+
+\section*{Problem 1 (10 points)}
+Lets consider the problem that we discussed in class of assigning medical students to hospitals for their residency.  Assume that there are only three hospitals:  Harvard, John Hopkins and Wash U.  Each of these hospitals will only be accepting one medical student.  The following four medical school students have ranked the schools as follows:
+\\
+
+\noindent Vik:
+\begin{enumerate}
+\item Wash U
+\item Harvard
+\item Johns Hopkins
+\end{enumerate}
+\newpage
+\noindent Mike:
+\begin{enumerate}
+\item Wash U
+\item Johns Hopkins
+\item Harvard
+\end{enumerate}
+Emma:
+\begin{enumerate}
+\item Johns Hopkins
+\item Harvard
+\item Wash U
+\end{enumerate}
+\noindent Tessy:
+\begin{enumerate}
+\item Johns Hopkins
+\item Wash U
+\item Harvard
+\end{enumerate}
+
+Assume that assigning a medical student to his or her first choice school is worth 3 happiness points, assigning him or her to her second choice is worth 2 points and no points are given for last choice assignments.  
+
+\begin{enumerate}
+\item Formulate the problem as linear program where the goal is to assign the students to medical schools with the intention of maximizing happiness points.
+\item Solve the linear program in Excel.
+\end{enumerate}
+
+
+\section*{Problem 2 (10 points)}
+
+In this problem, we are planning the production schedule for Landon Donovan soccer jerseys on October 10, 11, and 12.  You may assume that at the start of October 10th, the production facility does not have any Landon Donovan jerseys.  The demand for the Landon Donovan jerseys for each of these three days is as follows:
+\begin{itemize}
+\item October 10: 10
+\item October 11: 15
+\item October 12: 20
+\end{itemize} 
+The costs for producing jerseys on these three days is as follows:
+\begin{itemize}
+\item October 10: $\$$20  
+\item October 11: $\$$10
+\item October 12: $\$$30
+\end{itemize}
+On each day, first you decide how many jerseys to produce, and then the corresponding demand is realized.  Assuming that all demand must be met and the only costs incurred are for producing jerseys, formulate the production problem as a linear program where the goal is to minimize costs.  Just write down the linear program, no need to solve in Excel.
+\\
+
+\noindent \textbf{Bonus (additional 2 points)}:  Assume that there are stocking costs associated with holding excess inventory from one day to the next.  For the first 10 jerseys that we have to store overnight we pay only $\$$1 dollar, and then for every additional jersey we have to store after the $10^{th}$, we pay $\$$5. The stocking costs are cumulative across the 3 days.  So if we store 10 excess jerseys from the $10^{th}$ to the $11^{th}$ we will pay $\$10$ in stocking costs.  If then we also have to store 5 jerseys from the $11^{th}$ to the $12^{th}$, we will pay $\$5$ for each of these jerseys.  Assuming again that all demand must be met and our goal is to minimize costs, formulate the problem as a linear program.  Just write down the linear program, no need to solve in Excel.
+
+ 
+     
+
+
+
+
+
+\end{document}
+
