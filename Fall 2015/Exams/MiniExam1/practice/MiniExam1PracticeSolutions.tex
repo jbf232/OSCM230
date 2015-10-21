@@ -1,0 +1,106 @@
+\documentclass{article}[11 pt]    % Specifies the document style.
+
+%
+\usepackage{color}
+\usepackage{amsmath,amsthm}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+\parskip 9pt
+
+
+\begin{document}           % End of preamble and beginning of text.
+\begin{center}
+\textbf{Mini Exam 1 Practice}\\[.1cm]
+\end{center}
+
+\section*{Solutions}
+
+\begin{enumerate}
+
+\item A manager at a factory is trying to decide how much of a certain product to produce in the months of January, February and March to minimize costs.  The demand for the product in these months will be 10, 15, and 12 units respectively.  Assume that at the beginning of January, the manager has 5 units of inventory on hand.  Since the product requires raw materials to make the product, the cost of producing a unit  of the product changes in each month.  In January, the cost is $\$10$ per unit, in February $\$8$ per unit and in March the cost is $\$15$ per unit.  In addition, there is a cost of $\$11$ for each unit of unmet demand and a holding cost of $\$5$ for each unit of the product that must be stored from one month to the next.  For example, if the manager decides to produce 6 units in January, the total cost will be $6*10 + 1*5$.  the first term in the sum gives the production cost and the second term gives the holding cost incurred.  At the beginning of January, we had 5 units and we produced 6 more so we had a total of 11 units.  The demand was 10 units and so we have to store 1 unit from January to February.  We pay the holding cost and our initial inventory for February is 1 unit.  
+
+Formulate the problem as a linear program both for the case when demand is backlogged (unmet demand rolls over from one month to the next) and when demand is not backlogged.  Start with the latter.  Also, solve the LP in excel and give the optimal production quantities in each month for both of the aforementioned demand scenarios. 
+
+\noindent \textbf{Solution:}
+
+First we will solve the case when there is no backlog.  We have to decide how much of the product to produce in each period.  We also need to introduce auxiliary variable to keep track of how many products we need to stock in each month or how much unmet demand we have in each month.  We use use the following set of decision variables ($i$ will range over J, F, M):
+\begin{itemize}
+\item $P_i$: The number of units of the product that I produce in month $i$
+\item $O_i$:  Number of units I need to stock in month $i$
+\item $U_i$: Number of units of unmet demand in month $i$
+\end{itemize}
+Our goal in this problem is to minimize cost.  We have that $$cost=10P_J + 8P_F + 15P_M + 5(O_J + O_F + O_M) + 11(U_J + U_F + U_M).$$
+Next we formulate the constraints that will have to correctly capture the inventory dynamics.  We will use the technique I referred to as using the objective:
+\begin{align*}
+O_J -U_J &= (5+P_J)-10\\
+O_F -U_F &= (O_J+P_F)-15\\
+O_M -U_M &= (O_F+P_M)-12\\
+&O,U,P\geq 0
+\end{align*}
+Based on our interpretation of $O_i$ and $U_i$, we cannot have both variable greater than 0 for $i=J,F,M$, so how does our set of constraints encode this?  Well, consider a scenario where $O_i=10$ and $U_i=5$.  We can lower the objective by setting $O_i=5$ and $U_i=0$ while maintaining feasibility and so the previous solution could not have been optimal.
+\item From past data, the production manager of a factory knows that by varying his production rate, he incurs additional costs. He estimates that his cost per unit increases by $\$0.50$ when production is increased from one month to the next. Similarly, reducing production increases costs by $\$0.25$ per unit. A smooth production rate is obviously desirable.
+Sales forecasts for the next twelve months are (in thousands);
+\begin{align*}
+July&:4 \;,August:6\; ,September:8\\
+October&:12\;, November:16\;, December:20\\
+January&:20 \;, February:12\;, March:8\\
+April&:6 \;, May:4 \;, June:4
+\end{align*}
+This June's production schedule has already been set at 4000 units, and the July 1 inventory level is projected to be 2000 units. Storage is available for only 10,000 units at any one time. Ignoring inventory costs, formulate (and solve in excel) a production schedule for the coming year that will minimize the cost of changing production rates while meeting all sales demands. (Hint: Express the change in production from month t-1 to month t in terms of nonnegative variables $x_t^+$ and $x_t^-$ as $x_t^+ - x_t^-$ . Variable $x_t^+$ is the increase in production and $x_t^-$ the decrease. Is it possible for both $x_t^+$ and $x_t^-$ to be positive in the optimal solution?)
+
+\noindent \textbf{Solution:}
+
+The decision we have to make is how much to produce in each month, although we will need to define auxiliary variables to keep track of inventory and the increase/decrease in our production.  Remember, we are only charged when we change the production but we have to satisfy all of the demand. We define the following decision variables:
+\begin{itemize}
+\item $y_t$: Production level in month $t$
+\item $I_t$: Inventory level at the start of month $t$
+\item $x^+_t$: Increase in production from month $t-1$ to $t$
+\item $x^-_t$: Decrease in production from month $t-1$ to $t$ 
+\end{itemize}
+Finally, we wil let $D_t$ be the demand in month $t$. July will correspond to $t=1$.  The linear program can be formulated as follows:
+\begin{align*}
+\hspace{1.5cm}& \min \sum_{t=1}^{12} 0.5x^+_t + 0.25x^-_t \\
+s.t. &\;\;\; x^+_t \geq y_t - y _{t-1}  \\
+&\;\;\; x^-_t \geq y_{t-1} - y _{t}\\
+&\;\;\; I_t=I_{t-1} + y_{t-1} - D_{t-1} \\
+&\;\;\; I_t\leq 10000 \\
+&\;\;\; y_0=4000, \; I_1=2000 \\
+&\;\;\; I_t, P_t, x^+_t,x^-_y \geq 0
+\end{align*}
+
+
+\item Formulate the shortest path problem as an LP where there is a decision variable for each node and it is given by $x_i:$shortest path from the source to node $i$.  Solve this LP for the network given in class using excel. 
+
+\noindent \textbf{Solution:}
+
+I have give you the decision variables, $X_i$ will represent the shortest distance from node $A$ to node $i$.  The formulation is fro the network given in Slide 6 of Lecture 3. Consider the LP below:
+\begin{align*}
+\hspace{1.5cm}& \max X_F \\
+s.t. &\;\;\; X_A =0  \\
+&\;\;\; X_B \leq X_A +6\\
+&\;\;\; X_B \leq X_C +6\\
+&\;\;\; X_C \leq X_A +1\\
+&\;\;\; X_D \leq X_A +2\\
+&\;\;\; X_D \leq X_C +3\\
+&\;\;\; X_E \leq X_C +2\\
+&\;\;\; X_E \leq X_D +4\\
+&\;\;\; X_F \leq X_E +2\\
+&\;\;\; X_F \leq X_B +2\\
+&\;\;\;X_i \geq 0
+\end{align*}
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass{article}[11 pt]    % Specifies the document style.
+
+%
+\usepackage{color}
+\usepackage{amsmath,amsthm}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+\parskip 9pt
+
+
+\begin{document}           % End of preamble and beginning of text.
+\begin{center}
+\textbf{Mini Exam 1 Practice}\\[.1cm]
+\end{center}
+
+\begin{enumerate}
+\item A manager at a factory is trying to decide how much of a certain product to produce in the months of January, February and March to minimize costs.  The demand for the product in these months will be 10, 15, and 12 units respectively.  Assume that at the beginning of January, the manager has 5 units of inventory on hand.  Since the product requires raw materials to make the product, the cost of producing a unit  of the product changes in each month.  In January, the cost is $\$10$ per unit, in February $\$8$ per unit and in March the cost is $\$15$ per unit.  In addition, there is a cost of $\$11$ for each unit of unmet demand and a holding cost of $\$5$ for each unit of the product that must be stored from one month to the next.  For example, if the manager decides to produce 6 units in January, the total cost will be $6*10 + 1*5$.  the first term in the sum gives the production cost and the second term gives the holding cost incurred.  At the beginning of January, we had 5 units and we produced 6 more so we had a total of 11 units.  The demand was 10 units and so we have to store 1 unit from January to February.  We pay the holding cost and our initial inventory for February is 1 unit.  
+
+Formulate the problem as a linear program when demand is not backlogged (unmet demand does not carry over from one time period to the next).  Also, solve the LP in excel and give the optimal production quantities in each month. 
+
+\item From past data, the production manager of a factory knows that by varying his production rate, he incurs additional costs. He estimates that his cost per unit increases by $\$0.50$ when production is increased from one month to the next. Similarly, reducing production increases costs by $\$0.25$ per unit. A smooth production rate is obviously desirable.Sales forecasts for the next twelve months are (in thousands);
+\begin{align*}July&:4 \;,August:6\; ,September:8\\October&:12\;, November:16\;, December:20\\January&:20 \;, February:12\;, March:8\\April&:6 \;, May:4 \;, June:4
+\end{align*}This June's production schedule has already been set at 4000 units, and the July 1 inventory level is projected to be 2000 units. Storage is available for only 10,000 units at any one time. Ignoring inventory costs, formulate (and solve in excel) a production schedule for the coming year that will minimize the cost of changing production rates while meeting all sales demands. (Hint: Express the change in production from month t-1 to month t in terms of nonnegative variables $x_t^+$ and $x_t^-$ as $x_t^+ - x_t^-$ . Variable $x_t^+$ is the increase in production and $x_t^-$ the decrease. Is it possible for both $x_t^+$ and $x_t^-$ to be positive in the optimal solution?)
+\item Formulate the shortest path problem as an LP where there is a decision variable for each node and it is given by $x_i:$shortest path from the source to node $i$.  Solve this LP for the network given in class using excel.
+
+\end{enumerate}
+
+\end{document}
