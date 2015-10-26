@@ -88,8 +88,12 @@ This tutorial will work with the data from the file Advertising$\_$Data.xls so d
 
 Before we issue the command to read in the data we will have to install a package called gdata. You can view all the packages you have installed through the bottom right window.  Clip the packages tab and search gdata.  If you have it installed simply check the box. If not, go to Tools $\rightarrow$ Installl Packages in the top menu bar and then search for gdata.  Once it is downloaded you will see it under packages in the bottom right portion of RStudio so all you have to do is check the box. 
 
+<<<<<<< HEAD
+Now we are ready to read in the excel data into an R data frame, which is a data structure (special way to store the data) that allows us to easily filter and sort the data.  Tp read in the data from sheet one into a data frame type $ df = read.xls ("Advertising$\_$Data.xls", sheet = 1, header = TRUE)$, since the data is in the first sheet.  You will often see $<-$ used in place of the equal sign in R, you can treat them as the same thing.  
+=======
 Now we are ready to read in the excel data into an R data frame, which is a data structure (special way to store the data) that allows us to easily filter, sort and extract useful information from the data.  To read in the data from sheet one into a data frame type $ df = read.xls ("Advertising\_Data.xls", sheet = 1, header = TRUE)$, since the data is in the first sheet.  You will often see $<-$ used in place of the equal sign in R, you can treat them as the same thing.  %Typing $head(df)$ will give you the first few entries entries in each column.  This is a good way to check that you have read in the correct data table.  
 
 
+>>>>>>> 271402d170a0d6e8823aa4b9b2ed5658a073a6c3
 
 \end{document}

@@ -1,0 +1,49 @@
+\documentclass{article}[11 pt]    % Specifies the document style.
+
+%
+\usepackage{color}
+\usepackage{amsmath,amsthm}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+\parskip 9pt
+
+
+\begin{document}           % End of preamble and beginning of text.
+\begin{center}
+\textbf{Mini Exam 2 Practice Solutions}\\[.1cm]
+\end{center}
+
+\begin{enumerate}
+\item We let $x_{ij}$ be the amount I invest in Fund $j$ in year $i$.  I'll choose n=0, so we have $i=\{0,1,2,3,4\}$ where $i=0$ corresponds to 2000, for example.  The following LP solves the problem:
+\begin{align*}
+\hspace{1.5cm}& \max 1.07X_{4A} + 1.16X_{3B} + 1.24X_{2C} + 1.32X_{1D} \\
+s.t. &\;\;\; X_{0A}+X_{0B}+X_{0C} + X_{0D} \leq 356000\\
+&\;\;\; X_{1A}+X_{1B}+X_{1C} + X_{1D} \leq 1.07X_{0A} \\
+&\;\;\; X_{2A}+X_{2B}+X_{2C}  \leq 1.07X_{1A} + 1.16X_{0B} \\
+&\;\;\; X_{3A}+X_{3B} \leq 1.07X_{2A} + 1.16X_{1B} + 1.24X_{0C} \\
+&\;\;\; X_{4A} \leq 1.07X_{3A} + 1.16X_{2B} + 1.24X_{1C} + 1.32X_{0D}  \\
+&\;\;\; X_{ij} \geq 0
+\end{align*}
+\noindent Answers to the additional questions (See sensitivity analysis in Excel answer key):
+\begin{itemize}
+\item Allowable increase for the RHS of the constraint for year 2000 is infinity so we can use the Shadow Price of 1.44 for this constraint for any increase.  That said, the optimal objective will increase by (400000-356000)*1.44.
+\item This change in the return of fund D will change the objective of $X_{1D}$ from 1.32 to 1.50, this is a change of 0.18. This is above the allowable increase of 0.0256 so the optimal solution will change.   To find the new optimal solution you would have to plug this change into the Excel spreadsheet and resolve.
+\end{itemize}
+
+\item Let $X_i$ indicate whether we include product $i$ or not.  We will see that in the optimal solution, $X_i$ will be 1 if we put it in the backpack and 0 if we do not and we will get this integrality without explicitly enforcing it.  Consider the following LP:
+\begin{align*}
+\hspace{1.5cm}& \max 10X_{1}+7X_{2}+20X_{3} + 8X_{4} + 15X_{5} + 3X_{6} \\
+s.t. &\;\;\; \sum_{i=1}^6 X_{i} \leq 4\\
+&\;\;\; X_{i} \leq 1 \\
+&\;\;\; X_{i} \geq 0
+\end{align*}
+\noindent Answers to additional questions:
+\begin{itemize}
+\item The shadow price of the backpack constraint in 7 and the allowable increase is 1 so I can use this shadow price to consider the change in the objective if I increase the size of the backpack from 4 to 5.  Since the shadow price is 7 I would be willing to pay up to 7.
+\item  This is a change in the objective coefficient of item 1 which has an allowable decrease of only 3.  This change of 3.5 would therefore change the optimal solution and to find the new optimal solution you have to plug in the change and resolve.  The new optimal solution includes item 2,3,4, and 5.
+\item The reduced cost of item 6 is -4 so the value of item 6 would have to increase by 4.
+\item \textbf{Bonus:}  We make each item a supply node with a supply of 1.  There is one demand node with a demand of 4 (the size of the backpack).   The revenue gained from shipping the unit of supply from a particular supply node to the demand node is the value of the item. 
+\end{itemize}
+\end{enumerate}
+\end{document}
